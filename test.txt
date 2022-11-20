@@ -94,23 +94,6 @@ public class Example2 {
     /**
      * 打印出ResultScanner的值
      */
-    public void printResultScanner(ResultScanner results) {
-        Iterator<Result> iterator = results.iterator();
-        while (iterator.hasNext()) {
-            Result next = iterator.next();
-            List<Cell> cells = next.listCells();
-            for (Cell cell : cells) {
-                String value = Bytes.toString(CellUtil.cloneValue(cell));
-                String row = Bytes.toString(CellUtil.cloneRow(cell));
-                String family = Bytes.toString(CellUtil.cloneFamily(cell));
-                String qualify = Bytes.toString(CellUtil.cloneQualifier(cell));
-                if (qualify.isEmpty()) {
-                    qualify = "null";
-                }
-                System.out.printf("row:%s family:%s qualify:%s value:%s\n", row, family, qualify, value);
-            }
-        }
-    }
 
     /**
      * 修改表tableName，行row，列column指定的单元格的数据
